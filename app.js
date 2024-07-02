@@ -1,9 +1,19 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose =require('mongoose')
 
+//express app
 const app=express()
+
+//connect to mongo db
+const dburi = 'mongodb+srv://tamil:Tamil090@node.qs09j7e.mongodb.net/node?retryWrites=true&w=majority&appName=node'
+mongoose.connect(dburi)
+.then((result)=> console.log('connected to db'))
+.catch((err)=>console.log(err));
+
 // register view engine
 app.set('view engine','ejs');
+
 
 
 //listen
